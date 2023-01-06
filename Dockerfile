@@ -1,3 +1,7 @@
 FROM openjdk:8-jdk-alpine
-COPY amplify-0.0.1-SNAPSHOT.jar app.jar
+RUN addgroup -S spring && adduser -S spring -G spring
+ADD ./src/ src/
+RUN chown -R spring:spring /src/
+USER spring:spring
+COPY target/amplify-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]

@@ -74,7 +74,7 @@ public class FileUploadController {
             httpHeaders.setContentType(MediaType.APPLICATION_JSON);
             return new ResponseEntity<String>("{data:{}}", httpHeaders, HttpStatus.BAD_REQUEST);
         }
-
+        System.out.println("FILE SEPARATOR "+File.separator);
         Stack<String> allShapefiles = new Stack<String>();
         String filepath = UPLOADED_FOLDER + file.getOriginalFilename();
         try{
